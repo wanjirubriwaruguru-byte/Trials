@@ -1,0 +1,8 @@
+{
+  "name": "Pulse75",
+  "description": "Premium 75-day fitness, habit, workout, and body transformation system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

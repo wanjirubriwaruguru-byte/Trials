@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* Tech Neon Theme Glows */
+.theme-tech {
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff007a;
+  --neon-purple: #9d00ff;
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px -3px rgba(0, 240, 255, 0.35);
+}
+
+.glow-pink {
+  box-shadow: 0 0 20px -3px rgba(255, 0, 122, 0.35);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px -3px rgba(157, 0, 255, 0.35);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.glow-text-pink {
+  text-shadow: 0 0 10px rgba(255, 0, 122, 0.5);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Pulse animation for mascot rings */
+@keyframes cyber-orbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes cyber-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-cyber-orbit {
+  animation: cyber-orbit 12s linear infinite;
+}
+
+.animate-cyber-orbit-rev {
+  animation: cyber-orbit 18s linear infinite reverse;
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float-subtle 4s ease-in-out infinite;
+}

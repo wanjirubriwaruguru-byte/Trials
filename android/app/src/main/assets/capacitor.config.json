@@ -1,0 +1,10 @@
+{
+	"appId": "com.pulse75.app",
+	"appName": "Pulse75",
+	"webDir": "dist",
+	"server": {
+		"androidScheme": "https",
+		"cleartext": true
+	},
+	"android": {}
+}
