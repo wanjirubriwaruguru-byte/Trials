@@ -20,7 +20,7 @@ jobs:
           node-version: 20
 
       - name: Install Project Dependencies
-        run: npm install
+        run: npm install --legacy-peers-deps
 
       - name: Build Pulse75 Frontend
         run: npm run build
