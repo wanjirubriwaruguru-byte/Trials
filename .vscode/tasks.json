@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Mokxi: Push to Mokxi",
+      "type": "shell",
+      "command": "npx --yes @mokxi/cli push",
+      "problemMatcher": []
+    },
+    {
+      "label": "Mokxi: Pull from Mokxi",
+      "type": "shell",
+      "command": "npx --yes @mokxi/cli pull",
+      "problemMatcher": []
+    },
+    {
+      "label": "Mokxi: Run in the simulator",
+      "type": "shell",
+      "command": "npx --yes @mokxi/cli run --seconds 5",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Mokxi: Open in the browser",
+      "type": "shell",
+      "command": "npx --yes @mokxi/cli open",
+      "problemMatcher": []
+    },
+    {
+      "label": "Arduino: Compile (esp321)",
+      "type": "shell",
+      "command": "arduino-cli compile --fqbn esp32:esp32:esp32 --output-dir build/Smart_Drainage_node_esp321 Smart_Drainage_node_esp321",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Mokxi: Upload the build to Mokxi (esp321)",
+      "type": "shell",
+      "command": "npx --yes @mokxi/cli upload --board esp321 --firmware build/Smart_Drainage_node_esp321/Smart_Drainage_node_esp321.ino.elf",
+      "dependsOn": "Arduino: Compile (esp321)",
+      "problemMatcher": []
+    },
+    {
+      "label": "Arduino: Upload to a real board (esp321)",
+      "type": "shell",
+      "command": "arduino-cli upload --fqbn esp32:esp32:esp32 --input-dir build/Smart_Drainage_node_esp321 --port ${input:port} Smart_Drainage_node_esp321",
+      "dependsOn": "Arduino: Compile (esp321)",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "port",
+      "type": "promptString",
+      "description": "Serial port of the board (arduino-cli board list shows them)",
+      "default": "/dev/ttyUSB0"
+    }
+  ]
+}
